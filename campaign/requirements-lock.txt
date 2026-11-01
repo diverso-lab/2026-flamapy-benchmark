@@ -2,6 +2,7 @@ afmparser==1.0.3
 antlr4-python3-runtime==4.13.1
 astutils==0.0.6
 contourpy==1.4.0
+coverage==7.17.0
 cycler==0.12.1
 dd==0.6.0
 fonttools==4.68.0

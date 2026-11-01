@@ -377,6 +377,8 @@ def load_models(cfg: dict[str, Any]) -> list[dict[str, str]]:
         if k < len(out):
             step = len(out) / k
             out = [out[int(i * step)] for i in range(k)]
+    if spec.get('ids_file'):
+        spec = dict(spec, ids=json.loads((ROOT / spec['ids_file']).read_text()))
     if spec.get('ids'):
         wanted = set(spec['ids'])
         out = [r for r in out if r['model_id'] in wanted]

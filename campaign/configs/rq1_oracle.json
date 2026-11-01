@@ -1,0 +1,15 @@
+{
+  "name": "rq1_oracle",
+  "description": "RQ1 oracle: every tool and operation on the small Boolean models that rq1/oracle.py enumerated exhaustively. Correctness only; timings not used.",
+  "tools": ["flamapy-sat:glucose3", "flamapy-bdd", "flamapy-z3", "fama-sat4j", "fama-choco", "featureide"],
+  "ops": ["Satisfiable", "CoreFeatures", "DeadFeatures", "FalseOptionalFeatures", "ConfigurationsNumber", "Configurations",
+          "VariantFeatures", "PureOptionalFeatures", "UniqueFeatures", "FeatureInclusionProbability", "ProductDistribution",
+          "Homogeneity", "Variability"],
+  "reps": 1,
+  "timeout_s": 120,
+  "workers": 4,
+  "java_xmx": "2g",
+  "python": ".venv/bin/python",
+  "seed": 2026,
+  "models": {"manifest": "prepared/manifest.csv", "include_duplicates": false, "ids_file": "prepared/oracle_ids.json"}
+}
