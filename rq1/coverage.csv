@@ -1,0 +1,7 @@
+repo,commit,status,pytest,statements,covered,line_pct,branches,covered_branches,branch_pct
+flamapy_fw,af8c987,ok,"83 passed, 1 warning in 1.01s",2092,1672,79.9,454,276,60.8
+fm_metamodel,c53b875,ok,"264 passed, 1 warning in 1.50s",3680,2288,62.2,1214,578,47.6
+pysat_metamodel,9296da1,ok,"76 passed, 1 warning in 0.29s",1624,1207,74.3,366,183,50.0
+bdd_metamodel,a5524ee,ok,"92 passed, 1 warning in 3.11s",1656,1076,65.0,360,142,39.4
+z3_metamodel,b5608d5,ok,"27 passed, 1 warning in 0.41s",1151,698,60.6,432,195,45.1
+flamapy,5f0d6e6,ok,"313 passed, 2 skipped, 1 warning in 5.84s",462,197,42.6,152,60,39.5
