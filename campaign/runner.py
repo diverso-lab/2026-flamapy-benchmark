@@ -110,6 +110,12 @@ class StepRecord:
 
 def _preexec(cpu: Optional[int], mem_limit_gb: Optional[float]):
     def fn() -> None:
+        if sys.platform.startswith('linux'):
+            try:  # SIGKILL the worker if the runner thread that started it dies
+                import ctypes
+                ctypes.CDLL('libc.so.6', use_errno=True).prctl(1, signal.SIGKILL)  # PR_SET_PDEATHSIG
+            except Exception:  # noqa: BLE001
+                pass
         if cpu is not None and hasattr(os, 'sched_setaffinity'):
             os.sched_setaffinity(0, {cpu})
         if mem_limit_gb and sys.platform.startswith('linux'):

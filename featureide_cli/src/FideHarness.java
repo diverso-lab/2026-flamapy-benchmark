@@ -37,7 +37,24 @@ public class FideHarness {
 
     private static final ThreadMXBean THREADS = ManagementFactory.getThreadMXBean();
 
+
+    /** Exit if the runner dies: an orphaned harness would otherwise run with no timeout. */
+    private static void watchParent() {
+        final long parent = ProcessHandle.current().parent().map(ProcessHandle::pid).orElse(-1L);
+        Thread t = new Thread(() -> {
+            while (true) {
+                try { Thread.sleep(1000); } catch (InterruptedException e) { return; }
+                long now = ProcessHandle.current().parent().map(ProcessHandle::pid).orElse(-1L);
+                boolean alive = ProcessHandle.of(parent).map(ProcessHandle::isAlive).orElse(false);
+                if (now != parent || !alive) { Runtime.getRuntime().halt(3); }
+            }
+        });
+        t.setDaemon(true);
+        t.start();
+    }
+
     public static void main(String[] args) {
+        watchParent();
         emit("{\"ev\":\"ready\",\"jvm_start_epoch_ms\":" + ManagementFactory.getRuntimeMXBean().getStartTime()
                 + ",\"jvm_uptime_ms\":" + ManagementFactory.getRuntimeMXBean().getUptime()
                 + ",\"java_version\":" + q(System.getProperty("java.version")) + "}");

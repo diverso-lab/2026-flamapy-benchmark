@@ -157,7 +157,24 @@ def load_backend(tool: str, variant: str) -> tuple[Callable[[Any], Any], dict[st
     raise SystemExit(f'unknown tool {tool}')
 
 
+def _watch_parent() -> None:
+    """Exit if the runner dies: an orphaned worker would otherwise run with no timeout."""
+    import os
+    import threading
+
+    parent = os.getppid()
+
+    def loop() -> None:
+        while True:
+            time.sleep(1.0)
+            if os.getppid() != parent:
+                os._exit(3)
+
+    threading.Thread(target=loop, daemon=True).start()
+
+
 def main(argv: list[str]) -> None:
+    _watch_parent()
     emit({'ev': 'ready', 'python': sys.version.split()[0]})
     if len(argv) != 5:
         emit({'ev': 'fatal', 'msg': 'usage: py_worker MODEL TOOL VARIANT REPS OPS'})
