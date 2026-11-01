@@ -39,3 +39,15 @@ results/fama_lossless_scan*.csv
 # Claude Code
 .claude/
 CLAUDE.md
+
+# SoSyM revision campaign: regenerable or machine-local
+.build/
+.models/
+prepared/fama/
+prepared/fama_suite/
+results/smoke/
+results/pilot*/
+rq1/*pilot*
+rq2/*pilot*
+results/*/runner.pid
+results/*/nohup.out

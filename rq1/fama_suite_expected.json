@@ -1,0 +1,813 @@
+{
+ "resources/models/fama_test_suite/error-guessing/core-features/case1/cf-case1.xml": {
+  "CoreFeatures": [
+   "A",
+   "B"
+  ]
+ },
+ "resources/models/fama_test_suite/error-guessing/core-features/case2/cf-case2.xml": {
+  "CoreFeatures": [
+   "A",
+   "B"
+  ]
+ },
+ "resources/models/fama_test_suite/error-guessing/core-features/case3/cf-case3.xml": {
+  "CoreFeatures": [
+   "A",
+   "B",
+   "C"
+  ]
+ },
+ "resources/models/fama_test_suite/error-guessing/core-features/case4/cf-case4.xml": {
+  "CoreFeatures": [
+   "A",
+   "B",
+   "C",
+   "E"
+  ]
+ },
+ "resources/models/fama_test_suite/error-guessing/core-features/case5/cf-case5.xml": {
+  "CoreFeatures": [
+   "A",
+   "B",
+   "C",
+   "D"
+  ]
+ },
+ "resources/models/fama_test_suite/error-guessing/core-features/case6/cf-case6.xml": {
+  "CoreFeatures": []
+ },
+ "resources/models/fama_test_suite/error-guessing/dead-features/case1/df-case1.xml": {
+  "DeadFeatures": [
+   "D"
+  ]
+ },
+ "resources/models/fama_test_suite/error-guessing/dead-features/case2/df-case2.xml": {
+  "DeadFeatures": [
+   "E"
+  ]
+ },
+ "resources/models/fama_test_suite/error-guessing/dead-features/case3/df-case3.xml": {
+  "DeadFeatures": [
+   "D"
+  ]
+ },
+ "resources/models/fama_test_suite/error-guessing/dead-features/case4/df-case4.xml": {
+  "DeadFeatures": [
+   "C"
+  ]
+ },
+ "resources/models/fama_test_suite/error-guessing/dead-features/case5/df-case5.xml": {
+  "DeadFeatures": [
+   "A",
+   "B",
+   "C"
+  ]
+ },
+ "resources/models/fama_test_suite/error-guessing/dead-features/case6/df-case6.xml": {
+  "DeadFeatures": [
+   "B"
+  ]
+ },
+ "resources/models/fama_test_suite/error-guessing/dead-features/case7/df-case7.xml": {
+  "DeadFeatures": [
+   "A",
+   "B",
+   "C"
+  ]
+ },
+ "resources/models/fama_test_suite/error-guessing/dead-features/case8/df-case8.xml": {
+  "DeadFeatures": [
+   "B"
+  ]
+ },
+ "resources/models/fama_test_suite/error-guessing/false-optional-features/case1/fof-case1.xml": {
+  "FalseOptionalFeatures": [
+   "C"
+  ]
+ },
+ "resources/models/fama_test_suite/error-guessing/false-optional-features/case2/fof-case2.xml": {
+  "FalseOptionalFeatures": [
+   "C",
+   "D"
+  ]
+ },
+ "resources/models/fama_test_suite/error-guessing/false-optional-features/case3/fof-case3.xml": {
+  "FalseOptionalFeatures": [
+   "C",
+   "D"
+  ]
+ },
+ "resources/models/fama_test_suite/error-guessing/false-optional-features/case4/fof-case4.xml": {
+  "FalseOptionalFeatures": [
+   "C"
+  ]
+ },
+ "resources/models/fama_test_suite/error-guessing/false-optional-features/case5/fof-case5.xml": {
+  "FalseOptionalFeatures": [
+   "C"
+  ]
+ },
+ "resources/models/fama_test_suite/error-guessing/false-optional-features/case6/fof-case6.xml": {
+  "FalseOptionalFeatures": [
+   "B",
+   "E"
+  ]
+ },
+ "resources/models/fama_test_suite/refinement/alternative-noOr/alternative-noOr.xml": {
+  "Satisfiable": false
+ },
+ "resources/models/fama_test_suite/refinement/alternative-noParentLastChild/alternative-noParentLastChild.xml": {
+  "Satisfiable": false
+ },
+ "resources/models/fama_test_suite/refinement/alternative-oddChildren/alternative-oddChildren.xml": {
+  "Configurations": [],
+  "ConfigurationsNumber": "0",
+  "Satisfiable": false
+ },
+ "resources/models/fama_test_suite/refinement/or-noAlternative/or-noAlternative.xml": {
+  "Satisfiable": true
+ },
+ "resources/models/fama_test_suite/relationships/allrelationships/allrelationships.xml": {
+  "Configurations": [
+   [
+    "A",
+    "B",
+    "C",
+    "D",
+    "F"
+   ],
+   [
+    "A",
+    "B",
+    "C",
+    "E",
+    "F"
+   ],
+   [
+    "A",
+    "B",
+    "C",
+    "E",
+    "F",
+    "G"
+   ],
+   [
+    "A",
+    "B",
+    "D"
+   ]
+  ],
+  "ConfigurationsNumber": "4",
+  "Satisfiable": true
+ },
+ "resources/models/fama_test_suite/relationships/alternative-excludes/alternative-excludes.xml": {
+  "Configurations": [
+   [
+    "A",
+    "B"
+   ],
+   [
+    "A",
+    "C"
+   ]
+  ],
+  "ConfigurationsNumber": "2",
+  "Satisfiable": true
+ },
+ "resources/models/fama_test_suite/relationships/alternative-requires/alternative-requires.xml": {
+  "Configurations": [
+   [
+    "A",
+    "C"
+   ]
+  ],
+  "ConfigurationsNumber": "1",
+  "Satisfiable": true
+ },
+ "resources/models/fama_test_suite/relationships/alternative/alternative.xml": {
+  "Configurations": [
+   [
+    "A",
+    "B"
+   ],
+   [
+    "A",
+    "C"
+   ]
+  ],
+  "ConfigurationsNumber": "2",
+  "Satisfiable": true
+ },
+ "resources/models/fama_test_suite/relationships/excludes/excludes.xml": {
+  "Configurations": [
+   [
+    "A"
+   ],
+   [
+    "A",
+    "B"
+   ],
+   [
+    "A",
+    "C"
+   ]
+  ],
+  "ConfigurationsNumber": "3",
+  "Satisfiable": true
+ },
+ "resources/models/fama_test_suite/relationships/mandatory-alternative/mandatory-alternative.xml": {
+  "Configurations": [
+   [
+    "A",
+    "B",
+    "C",
+    "E",
+    "G"
+   ],
+   [
+    "A",
+    "B",
+    "C",
+    "F",
+    "G"
+   ],
+   [
+    "A",
+    "B",
+    "D",
+    "E"
+   ],
+   [
+    "A",
+    "B",
+    "D",
+    "F"
+   ]
+  ],
+  "ConfigurationsNumber": "4",
+  "Satisfiable": true
+ },
+ "resources/models/fama_test_suite/relationships/mandatory-excludes/mandatory-excludes.xml": {
+  "Configurations": [],
+  "ConfigurationsNumber": "0",
+  "Satisfiable": false
+ },
+ "resources/models/fama_test_suite/relationships/mandatory-optional/mandatory-optional.xml": {
+  "Configurations": [
+   [
+    "A",
+    "B"
+   ],
+   [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+   ],
+   [
+    "A",
+    "B",
+    "C",
+    "E"
+   ],
+   [
+    "A",
+    "B",
+    "D"
+   ]
+  ],
+  "ConfigurationsNumber": "4",
+  "Satisfiable": true
+ },
+ "resources/models/fama_test_suite/relationships/mandatory-or/mandatory-or.xml": {
+  "Configurations": [
+   [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G"
+   ],
+   [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "G"
+   ],
+   [
+    "A",
+    "B",
+    "C",
+    "D",
+    "F",
+    "G"
+   ],
+   [
+    "A",
+    "B",
+    "C",
+    "E"
+   ],
+   [
+    "A",
+    "B",
+    "C",
+    "E",
+    "F"
+   ],
+   [
+    "A",
+    "B",
+    "C",
+    "F"
+   ],
+   [
+    "A",
+    "B",
+    "D",
+    "E",
+    "F",
+    "G"
+   ],
+   [
+    "A",
+    "B",
+    "D",
+    "E",
+    "G"
+   ],
+   [
+    "A",
+    "B",
+    "D",
+    "F",
+    "G"
+   ]
+  ],
+  "ConfigurationsNumber": "9",
+  "Satisfiable": true
+ },
+ "resources/models/fama_test_suite/relationships/mandatory-requires/mandatory-requires.xml": {
+  "Configurations": [
+   [
+    "A",
+    "B",
+    "C"
+   ]
+  ],
+  "ConfigurationsNumber": "1",
+  "Satisfiable": true
+ },
+ "resources/models/fama_test_suite/relationships/mandatory/mandatory.xml": {
+  "Configurations": [
+   [
+    "A",
+    "B"
+   ]
+  ],
+  "ConfigurationsNumber": "1",
+  "Satisfiable": true
+ },
+ "resources/models/fama_test_suite/relationships/optional-alternative/optional-alternative.xml": {
+  "Configurations": [
+   [
+    "A",
+    "B",
+    "C",
+    "E"
+   ],
+   [
+    "A",
+    "B",
+    "C",
+    "F"
+   ],
+   [
+    "A",
+    "B",
+    "D",
+    "E"
+   ],
+   [
+    "A",
+    "B",
+    "D",
+    "E",
+    "G"
+   ],
+   [
+    "A",
+    "B",
+    "D",
+    "F"
+   ],
+   [
+    "A",
+    "B",
+    "D",
+    "F",
+    "G"
+   ],
+   [
+    "A",
+    "C"
+   ],
+   [
+    "A",
+    "D"
+   ],
+   [
+    "A",
+    "D",
+    "G"
+   ]
+  ],
+  "ConfigurationsNumber": "9",
+  "Satisfiable": true
+ },
+ "resources/models/fama_test_suite/relationships/optional-or/optional-or.xml": {
+  "Configurations": [
+   [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+   ],
+   [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ],
+   [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G"
+   ],
+   [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "G"
+   ],
+   [
+    "A",
+    "B",
+    "C",
+    "D",
+    "F"
+   ],
+   [
+    "A",
+    "B",
+    "C",
+    "D",
+    "F",
+    "G"
+   ],
+   [
+    "A",
+    "B",
+    "C",
+    "E"
+   ],
+   [
+    "A",
+    "B",
+    "C",
+    "E",
+    "F"
+   ],
+   [
+    "A",
+    "B",
+    "C",
+    "E",
+    "F",
+    "G"
+   ],
+   [
+    "A",
+    "B",
+    "C",
+    "E",
+    "G"
+   ],
+   [
+    "A",
+    "B",
+    "C",
+    "F"
+   ],
+   [
+    "A",
+    "B",
+    "C",
+    "F",
+    "G"
+   ],
+   [
+    "A",
+    "B",
+    "D",
+    "E"
+   ],
+   [
+    "A",
+    "B",
+    "D",
+    "E",
+    "F"
+   ],
+   [
+    "A",
+    "B",
+    "D",
+    "F"
+   ],
+   [
+    "A",
+    "C"
+   ],
+   [
+    "A",
+    "C",
+    "D"
+   ],
+   [
+    "A",
+    "C",
+    "D",
+    "G"
+   ],
+   [
+    "A",
+    "C",
+    "G"
+   ],
+   [
+    "A",
+    "D"
+   ]
+  ],
+  "ConfigurationsNumber": "20",
+  "Satisfiable": true
+ },
+ "resources/models/fama_test_suite/relationships/optional/optional.xml": {
+  "Configurations": [
+   [
+    "A"
+   ],
+   [
+    "A",
+    "B"
+   ]
+  ],
+  "ConfigurationsNumber": "2",
+  "Satisfiable": true
+ },
+ "resources/models/fama_test_suite/relationships/or-alternative/or-alternative.xml": {
+  "Configurations": [
+   [
+    "A",
+    "B",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H"
+   ],
+   [
+    "A",
+    "B",
+    "D",
+    "E",
+    "F",
+    "G",
+    "I"
+   ],
+   [
+    "A",
+    "B",
+    "D",
+    "E",
+    "F",
+    "H"
+   ],
+   [
+    "A",
+    "B",
+    "D",
+    "E",
+    "F",
+    "I"
+   ],
+   [
+    "A",
+    "B",
+    "D",
+    "E",
+    "G",
+    "H"
+   ],
+   [
+    "A",
+    "B",
+    "D",
+    "E",
+    "G",
+    "I"
+   ],
+   [
+    "A",
+    "B",
+    "D",
+    "F"
+   ],
+   [
+    "A",
+    "B",
+    "D",
+    "F",
+    "G"
+   ],
+   [
+    "A",
+    "B",
+    "D",
+    "G"
+   ],
+   [
+    "A",
+    "B",
+    "E",
+    "F",
+    "G",
+    "H"
+   ],
+   [
+    "A",
+    "B",
+    "E",
+    "F",
+    "G",
+    "I"
+   ],
+   [
+    "A",
+    "B",
+    "E",
+    "F",
+    "H"
+   ],
+   [
+    "A",
+    "B",
+    "E",
+    "F",
+    "I"
+   ],
+   [
+    "A",
+    "B",
+    "E",
+    "G",
+    "H"
+   ],
+   [
+    "A",
+    "B",
+    "E",
+    "G",
+    "I"
+   ],
+   [
+    "A",
+    "C",
+    "D"
+   ],
+   [
+    "A",
+    "C",
+    "D",
+    "E",
+    "H"
+   ],
+   [
+    "A",
+    "C",
+    "D",
+    "E",
+    "I"
+   ],
+   [
+    "A",
+    "C",
+    "E",
+    "H"
+   ],
+   [
+    "A",
+    "C",
+    "E",
+    "I"
+   ]
+  ],
+  "ConfigurationsNumber": "20",
+  "Satisfiable": true
+ },
+ "resources/models/fama_test_suite/relationships/or-excludes/or-excludes.xml": {
+  "Configurations": [
+   [
+    "A",
+    "B"
+   ],
+   [
+    "A",
+    "C"
+   ]
+  ],
+  "ConfigurationsNumber": "2",
+  "Satisfiable": true
+ },
+ "resources/models/fama_test_suite/relationships/or-requires/or-requires.xml": {
+  "Configurations": [
+   [
+    "A",
+    "B",
+    "C"
+   ],
+   [
+    "A",
+    "C"
+   ]
+  ],
+  "ConfigurationsNumber": "2",
+  "Satisfiable": true
+ },
+ "resources/models/fama_test_suite/relationships/or/or.xml": {
+  "Configurations": [
+   [
+    "A",
+    "B"
+   ],
+   [
+    "A",
+    "B",
+    "C"
+   ],
+   [
+    "A",
+    "C"
+   ]
+  ],
+  "ConfigurationsNumber": "3",
+  "Satisfiable": true
+ },
+ "resources/models/fama_test_suite/relationships/requires-excludes/requires-excludes.xml": {
+  "Configurations": [
+   [
+    "A"
+   ],
+   [
+    "A",
+    "C"
+   ]
+  ],
+  "ConfigurationsNumber": "2",
+  "Satisfiable": true
+ },
+ "resources/models/fama_test_suite/relationships/requires/requires.xml": {
+  "Configurations": [
+   [
+    "A"
+   ],
+   [
+    "A",
+    "B",
+    "C"
+   ],
+   [
+    "A",
+    "C"
+   ]
+  ],
+  "ConfigurationsNumber": "3",
+  "Satisfiable": true
+ }
+}

@@ -1,0 +1,266 @@
+2026-11-01 20:47:22 campaign rq1_fama_suite: 44 models x 6 tools, 264 pending tasks, 2 workers, timeout 60 s, 1 reps
+2026-11-01 20:47:23 [1/264] fama-sat4j             refinement/or-noAlternative/or-noAlternative.xml             error=2 success=4  eta 0:04:13
+2026-11-01 20:47:23 [2/264] fama-choco             error-guessing/dead-features/case7/df-case7.xml              error=1 success=5  eta 0:02:11
+2026-11-01 20:47:24 [3/264] featureide             relationships/or-excludes/or-excludes.xml                    error=1 success=5  eta 0:01:53
+2026-11-01 20:47:24 [4/264] featureide             error-guessing/false-optional-features/case3/fof-case3.xml   error=1 success=5  eta 0:01:48
+2026-11-01 20:47:24 [5/264] fama-sat4j             error-guessing/false-optional-features/case6/fof-case6.xml   error=2 success=4  eta 0:01:42
+2026-11-01 20:47:24 [6/264] flamapy-bdd            error-guessing/dead-features/case1/df-case1.xml              success=6  eta 0:01:29
+2026-11-01 20:47:25 [7/264] flamapy-z3             relationships/or-alternative/or-alternative.xml              success=6  eta 0:01:21
+2026-11-01 20:47:25 [8/264] flamapy-bdd            error-guessing/false-optional-features/case2/fof-case2.xml   success=6  eta 0:01:18
+2026-11-01 20:47:26 [9/264] fama-choco             relationships/mandatory-alternative/mandatory-alternative.xm error=1 success=5  eta 0:01:32
+2026-11-01 20:47:26 [10/264] fama-sat4j             relationships/or-requires/or-requires.xml                    error=2 success=4  eta 0:01:27
+2026-11-01 20:47:26 [11/264] featureide             refinement/or-noAlternative/or-noAlternative.xml             error=1 success=5  eta 0:01:23
+2026-11-01 20:47:26 [12/264] flamapy-bdd            error-guessing/dead-features/case5/df-case5.xml              success=6  eta 0:01:19
+2026-11-01 20:47:26 [13/264] featureide             relationships/alternative-excludes/alternative-excludes.xml  error=1 success=5  eta 0:01:16
+2026-11-01 20:47:26 [14/264] flamapy-sat:glucose3   relationships/requires-excludes/requires-excludes.xml        success=6  eta 0:01:11
+2026-11-01 20:47:27 [15/264] featureide             error-guessing/dead-features/case7/df-case7.xml              error=1 success=5  eta 0:01:11
+2026-11-01 20:47:27 [16/264] flamapy-bdd            error-guessing/core-features/case1/cf-case1.xml              success=6  eta 0:01:11
+2026-11-01 20:47:27 [17/264] fama-choco             error-guessing/dead-features/case1/df-case1.xml              error=1 success=5  eta 0:01:10
+2026-11-01 20:47:27 [18/264] flamapy-bdd            relationships/or-alternative/or-alternative.xml              success=6  eta 0:01:07
+2026-11-01 20:47:27 [19/264] featureide             error-guessing/false-optional-features/case1/fof-case1.xml   error=1 success=5  eta 0:01:06
+2026-11-01 20:47:28 [20/264] flamapy-z3             error-guessing/false-optional-features/case4/fof-case4.xml   success=6  eta 0:01:05
+2026-11-01 20:47:28 [21/264] flamapy-bdd            error-guessing/false-optional-features/case4/fof-case4.xml   success=6  eta 0:01:07
+2026-11-01 20:47:28 [22/264] fama-choco             relationships/optional-or/optional-or.xml                    error=1 success=5  eta 0:01:05
+2026-11-01 20:47:28 [23/264] flamapy-z3             error-guessing/dead-features/case7/df-case7.xml              success=6  eta 0:01:04
+2026-11-01 20:47:29 [24/264] fama-choco             relationships/optional/optional.xml                          error=1 success=5  eta 0:01:07
+2026-11-01 20:47:29 [25/264] flamapy-bdd            relationships/or-excludes/or-excludes.xml                    success=6  eta 0:01:07
+2026-11-01 20:47:29 [26/264] fama-choco             relationships/optional-alternative/optional-alternative.xml  error=1 success=5  eta 0:01:04
+2026-11-01 20:47:30 [27/264] flamapy-sat:glucose3   relationships/optional-alternative/optional-alternative.xml  success=6  eta 0:01:03
+2026-11-01 20:47:30 [28/264] flamapy-bdd            error-guessing/dead-features/case6/df-case6.xml              success=6  eta 0:01:02
+2026-11-01 20:47:30 [29/264] flamapy-z3             error-guessing/false-optional-features/case2/fof-case2.xml   success=6  eta 0:01:00
+2026-11-01 20:47:30 [30/264] flamapy-bdd            refinement/or-noAlternative/or-noAlternative.xml             success=6  eta 0:01:00
+2026-11-01 20:47:30 [31/264] featureide             relationships/mandatory-requires/mandatory-requires.xml      error=1 success=5  eta 0:00:59
+2026-11-01 20:47:31 [32/264] fama-choco             error-guessing/dead-features/case8/df-case8.xml              error=1 success=5  eta 0:01:00
+2026-11-01 20:47:31 [33/264] flamapy-sat:glucose3   error-guessing/core-features/case5/cf-case5.xml              success=6  eta 0:00:59
+2026-11-01 20:47:31 [34/264] flamapy-sat:glucose3   error-guessing/false-optional-features/case1/fof-case1.xml   success=6  eta 0:00:58
+2026-11-01 20:47:31 [35/264] flamapy-z3             error-guessing/dead-features/case5/df-case5.xml              success=6  eta 0:00:57
+2026-11-01 20:47:31 [36/264] fama-sat4j             relationships/mandatory-or/mandatory-or.xml                  error=2 success=4  eta 0:00:56
+2026-11-01 20:47:31 [37/264] flamapy-sat:glucose3   relationships/alternative/alternative.xml                    success=6  eta 0:00:55
+2026-11-01 20:47:31 [38/264] flamapy-sat:glucose3   refinement/alternative-noParentLastChild/alternative-noParen success=6  eta 0:00:53
+2026-11-01 20:47:32 [39/264] flamapy-bdd            refinement/alternative-noParentLastChild/alternative-noParen success=6  eta 0:00:53
+2026-11-01 20:47:32 [40/264] flamapy-z3             error-guessing/false-optional-features/case3/fof-case3.xml   success=6  eta 0:00:53
+2026-11-01 20:47:32 [41/264] flamapy-bdd            error-guessing/false-optional-features/case6/fof-case6.xml   success=6  eta 0:00:53
+2026-11-01 20:47:32 [42/264] fama-choco             error-guessing/dead-features/case5/df-case5.xml              error=1 success=5  eta 0:00:52
+2026-11-01 20:47:32 [43/264] featureide             error-guessing/false-optional-features/case2/fof-case2.xml   error=1 success=5  eta 0:00:52
+2026-11-01 20:47:33 [44/264] fama-sat4j             error-guessing/dead-features/case8/df-case8.xml              error=2 success=4  eta 0:00:53
+2026-11-01 20:47:33 [45/264] fama-choco             error-guessing/core-features/case2/cf-case2.xml              error=1 success=5  eta 0:00:53
+2026-11-01 20:47:34 [46/264] flamapy-z3             error-guessing/false-optional-features/case5/fof-case5.xml   success=6  eta 0:00:53
+2026-11-01 20:47:34 [47/264] flamapy-sat:glucose3   error-guessing/dead-features/case2/df-case2.xml              success=6  eta 0:00:52
+2026-11-01 20:47:34 [48/264] fama-choco             relationships/alternative/alternative.xml                    error=1 success=5  eta 0:00:52
+2026-11-01 20:47:34 [49/264] flamapy-bdd            relationships/excludes/excludes.xml                          success=6  eta 0:00:51
+2026-11-01 20:47:34 [50/264] flamapy-bdd            relationships/alternative-requires/alternative-requires.xml  success=6  eta 0:00:51
+2026-11-01 20:47:34 [51/264] flamapy-sat:glucose3   relationships/requires/requires.xml                          success=6  eta 0:00:50
+2026-11-01 20:47:35 [52/264] fama-sat4j             error-guessing/false-optional-features/case5/fof-case5.xml   error=2 success=4  eta 0:00:50
+2026-11-01 20:47:35 [53/264] flamapy-z3             error-guessing/dead-features/case4/df-case4.xml              success=6  eta 0:00:49
+2026-11-01 20:47:35 [54/264] flamapy-sat:glucose3   relationships/mandatory-or/mandatory-or.xml                  success=6  eta 0:00:48
+2026-11-01 20:47:35 [55/264] flamapy-sat:glucose3   relationships/mandatory-excludes/mandatory-excludes.xml      success=6  eta 0:00:47
+2026-11-01 20:47:35 [56/264] flamapy-bdd            error-guessing/dead-features/case7/df-case7.xml              success=6  eta 0:00:47
+2026-11-01 20:47:35 [57/264] flamapy-bdd            relationships/requires-excludes/requires-excludes.xml        success=6  eta 0:00:46
+2026-11-01 20:47:35 [58/264] flamapy-z3             error-guessing/core-features/case3/cf-case3.xml              success=6  eta 0:00:46
+2026-11-01 20:47:35 [59/264] flamapy-bdd            relationships/or-requires/or-requires.xml                    success=6  eta 0:00:45
+2026-11-01 20:47:35 [60/264] flamapy-sat:glucose3   relationships/or/or.xml                                      success=6  eta 0:00:44
+2026-11-01 20:47:36 [61/264] featureide             error-guessing/dead-features/case1/df-case1.xml              error=1 success=5  eta 0:00:44
+2026-11-01 20:47:36 [62/264] flamapy-bdd            relationships/mandatory-requires/mandatory-requires.xml      success=6  eta 0:00:44
+2026-11-01 20:47:36 [63/264] flamapy-sat:glucose3   error-guessing/core-features/case4/cf-case4.xml              success=6  eta 0:00:43
+2026-11-01 20:47:36 [64/264] flamapy-sat:glucose3   error-guessing/dead-features/case4/df-case4.xml              success=6  eta 0:00:42
+2026-11-01 20:47:36 [65/264] flamapy-sat:glucose3   error-guessing/dead-features/case8/df-case8.xml              success=6  eta 0:00:42
+2026-11-01 20:47:36 [66/264] flamapy-bdd            relationships/alternative/alternative.xml                    success=6  eta 0:00:41
+2026-11-01 20:47:37 [67/264] flamapy-bdd            error-guessing/core-features/case5/cf-case5.xml              success=6  eta 0:00:41
+2026-11-01 20:47:37 [68/264] fama-choco             relationships/mandatory/mandatory.xml                        error=1 success=5  eta 0:00:42
+2026-11-01 20:47:37 [69/264] fama-sat4j             relationships/optional-or/optional-or.xml                    error=2 success=4  eta 0:00:42
+2026-11-01 20:47:38 [70/264] fama-choco             refinement/alternative-noOr/alternative-noOr.xml             error=1 success=5  eta 0:00:43
+2026-11-01 20:47:38 [71/264] flamapy-bdd            error-guessing/core-features/case6/cf-case6.xml              success=6  eta 0:00:43
+2026-11-01 20:47:38 [72/264] fama-choco             error-guessing/core-features/case1/cf-case1.xml              error=1 success=5  eta 0:00:42
+2026-11-01 20:47:38 [73/264] flamapy-z3             relationships/mandatory-requires/mandatory-requires.xml      success=6  eta 0:00:42
+2026-11-01 20:47:39 [74/264] featureide             refinement/alternative-noOr/alternative-noOr.xml             error=1 success=5  eta 0:00:41
+2026-11-01 20:47:39 [75/264] flamapy-sat:glucose3   relationships/or-excludes/or-excludes.xml                    success=6  eta 0:00:41
+2026-11-01 20:47:39 [76/264] featureide             error-guessing/dead-features/case2/df-case2.xml              error=1 success=5  eta 0:00:40
+2026-11-01 20:47:39 [77/264] featureide             relationships/mandatory-or/mandatory-or.xml                  error=1 success=5  eta 0:00:40
+2026-11-01 20:47:39 [78/264] featureide             error-guessing/false-optional-features/case6/fof-case6.xml   error=1 success=5  eta 0:00:40
+2026-11-01 20:47:39 [79/264] flamapy-sat:glucose3   relationships/optional/optional.xml                          success=6  eta 0:00:39
+2026-11-01 20:47:40 [80/264] fama-sat4j             relationships/mandatory-alternative/mandatory-alternative.xm error=2 success=4  eta 0:00:40
+2026-11-01 20:47:40 [81/264] flamapy-bdd            relationships/mandatory-or/mandatory-or.xml                  success=6  eta 0:00:39
+2026-11-01 20:47:40 [82/264] fama-sat4j             relationships/optional/optional.xml                          error=2 success=4  eta 0:00:39
+2026-11-01 20:47:41 [83/264] fama-choco             relationships/alternative-excludes/alternative-excludes.xml  error=1 success=5  eta 0:00:40
+2026-11-01 20:47:41 [84/264] fama-choco             error-guessing/dead-features/case3/df-case3.xml              error=1 success=5  eta 0:00:40
+2026-11-01 20:47:41 [85/264] featureide             relationships/requires/requires.xml                          error=1 success=5  eta 0:00:39
+2026-11-01 20:47:41 [86/264] featureide             relationships/or/or.xml                                      error=1 success=5  eta 0:00:39
+2026-11-01 20:47:41 [87/264] flamapy-sat:glucose3   error-guessing/false-optional-features/case4/fof-case4.xml   success=6  eta 0:00:39
+2026-11-01 20:47:42 [88/264] flamapy-z3             error-guessing/core-features/case1/cf-case1.xml              success=6  eta 0:00:38
+2026-11-01 20:47:42 [89/264] flamapy-bdd            error-guessing/false-optional-features/case5/fof-case5.xml   success=6  eta 0:00:38
+2026-11-01 20:47:42 [90/264] fama-sat4j             error-guessing/core-features/case4/cf-case4.xml              error=2 success=4  eta 0:00:38
+2026-11-01 20:47:42 [91/264] flamapy-z3             relationships/alternative-excludes/alternative-excludes.xml  success=6  eta 0:00:37
+2026-11-01 20:47:42 [92/264] featureide             error-guessing/core-features/case3/cf-case3.xml              error=1 success=5  eta 0:00:37
+2026-11-01 20:47:42 [93/264] flamapy-z3             error-guessing/dead-features/case6/df-case6.xml              success=6  eta 0:00:36
+2026-11-01 20:47:42 [94/264] flamapy-sat:glucose3   relationships/or-requires/or-requires.xml                    success=6  eta 0:00:36
+2026-11-01 20:47:43 [95/264] featureide             error-guessing/dead-features/case4/df-case4.xml              error=1 success=5  eta 0:00:36
+2026-11-01 20:47:43 [96/264] flamapy-bdd            error-guessing/core-features/case2/cf-case2.xml              success=6  eta 0:00:36
+2026-11-01 20:47:43 [97/264] fama-sat4j             refinement/alternative-oddChildren/alternative-oddChildren.x error=2 success=4  eta 0:00:35
+2026-11-01 20:47:44 [98/264] fama-sat4j             relationships/or-alternative/or-alternative.xml              error=2 success=4  eta 0:00:36
+2026-11-01 20:47:44 [99/264] fama-sat4j             relationships/mandatory-excludes/mandatory-excludes.xml      error=2 success=4  eta 0:00:36
+2026-11-01 20:47:44 [100/264] flamapy-bdd            relationships/or/or.xml                                      success=6  eta 0:00:35
+2026-11-01 20:47:44 [101/264] flamapy-sat:glucose3   relationships/mandatory/mandatory.xml                        success=6  eta 0:00:35
+2026-11-01 20:47:44 [102/264] featureide             error-guessing/dead-features/case8/df-case8.xml              error=1 success=5  eta 0:00:35
+2026-11-01 20:47:45 [103/264] flamapy-sat:glucose3   error-guessing/core-features/case6/cf-case6.xml              success=6  eta 0:00:34
+2026-11-01 20:47:45 [104/264] featureide             relationships/or-alternative/or-alternative.xml              error=1 success=5  eta 0:00:34
+2026-11-01 20:47:45 [105/264] fama-sat4j             error-guessing/core-features/case5/cf-case5.xml              error=2 success=4  eta 0:00:34
+2026-11-01 20:47:45 [106/264] flamapy-sat:glucose3   error-guessing/false-optional-features/case2/fof-case2.xml   success=6  eta 0:00:33
+2026-11-01 20:47:45 [107/264] featureide             error-guessing/core-features/case5/cf-case5.xml              error=1 success=5  eta 0:00:33
+2026-11-01 20:47:46 [108/264] fama-sat4j             relationships/requires-excludes/requires-excludes.xml        error=2 success=4  eta 0:00:33
+2026-11-01 20:47:46 [109/264] fama-choco             refinement/alternative-noParentLastChild/alternative-noParen error=1 success=5  eta 0:00:34
+2026-11-01 20:47:46 [110/264] flamapy-sat:glucose3   error-guessing/dead-features/case5/df-case5.xml              success=6  eta 0:00:33
+2026-11-01 20:47:47 [111/264] fama-sat4j             relationships/mandatory/mandatory.xml                        error=2 success=4  eta 0:00:33
+2026-11-01 20:47:47 [112/264] flamapy-bdd            relationships/alternative-excludes/alternative-excludes.xml  success=6  eta 0:00:33
+2026-11-01 20:47:47 [113/264] fama-choco             error-guessing/false-optional-features/case5/fof-case5.xml   error=1 success=5  eta 0:00:33
+2026-11-01 20:47:48 [114/264] fama-choco             relationships/requires/requires.xml                          error=1 success=5  eta 0:00:33
+2026-11-01 20:47:48 [115/264] featureide             relationships/mandatory/mandatory.xml                        error=1 success=5  eta 0:00:33
+2026-11-01 20:47:48 [116/264] fama-sat4j             error-guessing/false-optional-features/case1/fof-case1.xml   error=2 success=4  eta 0:00:32
+2026-11-01 20:47:48 [117/264] flamapy-sat:glucose3   error-guessing/dead-features/case6/df-case6.xml              success=6  eta 0:00:32
+2026-11-01 20:47:48 [118/264] flamapy-sat:glucose3   error-guessing/core-features/case2/cf-case2.xml              success=6  eta 0:00:32
+2026-11-01 20:47:49 [119/264] fama-sat4j             error-guessing/dead-features/case1/df-case1.xml              error=2 success=4  eta 0:00:32
+2026-11-01 20:47:49 [120/264] fama-choco             error-guessing/dead-features/case6/df-case6.xml              error=1 success=5  eta 0:00:32
+2026-11-01 20:47:49 [121/264] flamapy-sat:glucose3   error-guessing/false-optional-features/case5/fof-case5.xml   success=6  eta 0:00:31
+2026-11-01 20:47:49 [122/264] featureide             relationships/or-requires/or-requires.xml                    error=1 success=5  eta 0:00:31
+2026-11-01 20:47:50 [123/264] flamapy-z3             error-guessing/dead-features/case2/df-case2.xml              success=6  eta 0:00:31
+2026-11-01 20:47:50 [124/264] flamapy-sat:glucose3   relationships/allrelationships/allrelationships.xml          success=6  eta 0:00:31
+2026-11-01 20:47:50 [125/264] fama-choco             error-guessing/core-features/case4/cf-case4.xml              error=1 success=5  eta 0:00:30
+2026-11-01 20:47:50 [126/264] featureide             relationships/allrelationships/allrelationships.xml          error=1 success=5  eta 0:00:30
+2026-11-01 20:47:50 [127/264] flamapy-bdd            error-guessing/core-features/case4/cf-case4.xml              success=6  eta 0:00:30
+2026-11-01 20:47:51 [128/264] fama-choco             error-guessing/false-optional-features/case4/fof-case4.xml   error=1 success=5  eta 0:00:30
+2026-11-01 20:47:51 [129/264] flamapy-sat:glucose3   error-guessing/false-optional-features/case3/fof-case3.xml   success=6  eta 0:00:30
+2026-11-01 20:47:51 [130/264] fama-sat4j             relationships/alternative-requires/alternative-requires.xml  error=2 success=4  eta 0:00:29
+2026-11-01 20:47:51 [131/264] featureide             error-guessing/dead-features/case5/df-case5.xml              error=1 success=5  eta 0:00:29
+2026-11-01 20:47:52 [132/264] flamapy-bdd            error-guessing/core-features/case3/cf-case3.xml              success=6  eta 0:00:29
+2026-11-01 20:47:52 [133/264] fama-choco             relationships/alternative-requires/alternative-requires.xml  error=1 success=5  eta 0:00:29
+2026-11-01 20:47:52 [134/264] featureide             relationships/alternative/alternative.xml                    error=1 success=5  eta 0:00:28
+2026-11-01 20:47:53 [135/264] fama-sat4j             error-guessing/false-optional-features/case3/fof-case3.xml   error=2 success=4  eta 0:00:29
+2026-11-01 20:47:53 [136/264] fama-choco             error-guessing/false-optional-features/case2/fof-case2.xml   error=1 success=5  eta 0:00:28
+2026-11-01 20:47:53 [137/264] flamapy-z3             relationships/allrelationships/allrelationships.xml          success=6  eta 0:00:28
+2026-11-01 20:47:53 [138/264] featureide             relationships/excludes/excludes.xml                          error=1 success=5  eta 0:00:28
+2026-11-01 20:47:54 [139/264] flamapy-bdd            relationships/optional/optional.xml                          success=6  eta 0:00:28
+2026-11-01 20:47:54 [140/264] featureide             error-guessing/core-features/case4/cf-case4.xml              error=1 success=5  eta 0:00:27
+2026-11-01 20:47:54 [141/264] fama-choco             refinement/or-noAlternative/or-noAlternative.xml             error=1 success=5  eta 0:00:27
+2026-11-01 20:47:54 [142/264] featureide             relationships/optional-or/optional-or.xml                    error=1 success=5  eta 0:00:27
+2026-11-01 20:47:54 [143/264] flamapy-z3             refinement/or-noAlternative/or-noAlternative.xml             success=6  eta 0:00:27
+2026-11-01 20:47:55 [144/264] fama-sat4j             relationships/allrelationships/allrelationships.xml          error=2 success=4  eta 0:00:26
+2026-11-01 20:47:55 [145/264] flamapy-z3             relationships/requires-excludes/requires-excludes.xml        success=6  eta 0:00:26
+2026-11-01 20:47:55 [146/264] flamapy-z3             relationships/mandatory-optional/mandatory-optional.xml      success=6  eta 0:00:26
+2026-11-01 20:47:55 [147/264] flamapy-z3             relationships/optional-or/optional-or.xml                    success=6  eta 0:00:26
+2026-11-01 20:47:55 [148/264] fama-choco             relationships/excludes/excludes.xml                          error=1 success=5  eta 0:00:25
+2026-11-01 20:47:56 [149/264] featureide             refinement/alternative-noParentLastChild/alternative-noParen error=1 success=5  eta 0:00:25
+2026-11-01 20:47:56 [150/264] flamapy-z3             error-guessing/core-features/case5/cf-case5.xml              success=6  eta 0:00:25
+2026-11-01 20:47:56 [151/264] fama-choco             error-guessing/false-optional-features/case6/fof-case6.xml   error=1 success=5  eta 0:00:25
+2026-11-01 20:47:57 [152/264] fama-choco             refinement/alternative-oddChildren/alternative-oddChildren.x error=1 success=5  eta 0:00:25
+2026-11-01 20:47:57 [153/264] featureide             error-guessing/core-features/case2/cf-case2.xml              error=1 success=5  eta 0:00:25
+2026-11-01 20:47:57 [154/264] fama-choco             relationships/or/or.xml                                      error=1 success=5  eta 0:00:24
+2026-11-01 20:47:57 [155/264] flamapy-sat:glucose3   relationships/or-alternative/or-alternative.xml              success=6  eta 0:00:24
+2026-11-01 20:47:57 [156/264] flamapy-sat:glucose3   error-guessing/dead-features/case3/df-case3.xml              success=6  eta 0:00:24
+2026-11-01 20:47:58 [157/264] featureide             relationships/alternative-requires/alternative-requires.xml  error=1 success=5  eta 0:00:24
+2026-11-01 20:47:58 [158/264] fama-sat4j             refinement/alternative-noOr/alternative-noOr.xml             error=2 success=4  eta 0:00:23
+2026-11-01 20:47:58 [159/264] flamapy-bdd            relationships/allrelationships/allrelationships.xml          success=6  eta 0:00:23
+2026-11-01 20:47:58 [160/264] flamapy-bdd            relationships/mandatory-optional/mandatory-optional.xml      success=6  eta 0:00:23
+2026-11-01 20:47:58 [161/264] flamapy-bdd            error-guessing/dead-features/case2/df-case2.xml              success=6  eta 0:00:23
+2026-11-01 20:47:58 [162/264] flamapy-z3             refinement/alternative-oddChildren/alternative-oddChildren.x success=6  eta 0:00:22
+2026-11-01 20:47:59 [163/264] fama-sat4j             relationships/optional-alternative/optional-alternative.xml  error=2 success=4  eta 0:00:22
+2026-11-01 20:47:59 [164/264] fama-choco             relationships/allrelationships/allrelationships.xml          error=1 success=5  eta 0:00:22
+2026-11-01 20:47:59 [165/264] flamapy-z3             relationships/or-requires/or-requires.xml                    success=6  eta 0:00:22
+2026-11-01 20:48:00 [166/264] flamapy-bdd            relationships/mandatory/mandatory.xml                        success=6  eta 0:00:22
+2026-11-01 20:48:00 [167/264] fama-sat4j             error-guessing/dead-features/case3/df-case3.xml              error=2 success=4  eta 0:00:21
+2026-11-01 20:48:00 [168/264] fama-choco             relationships/mandatory-optional/mandatory-optional.xml      error=1 success=5  eta 0:00:21
+2026-11-01 20:48:01 [169/264] featureide             error-guessing/false-optional-features/case4/fof-case4.xml   error=1 success=5  eta 0:00:21
+2026-11-01 20:48:01 [170/264] fama-sat4j             error-guessing/dead-features/case6/df-case6.xml              error=2 success=4  eta 0:00:21
+2026-11-01 20:48:02 [171/264] fama-sat4j             error-guessing/dead-features/case2/df-case2.xml              error=2 success=4  eta 0:00:21
+2026-11-01 20:48:02 [172/264] fama-choco             error-guessing/core-features/case3/cf-case3.xml              error=1 success=5  eta 0:00:21
+2026-11-01 20:48:02 [173/264] flamapy-z3             relationships/excludes/excludes.xml                          success=6  eta 0:00:20
+2026-11-01 20:48:02 [174/264] flamapy-sat:glucose3   relationships/mandatory-optional/mandatory-optional.xml      success=6  eta 0:00:20
+2026-11-01 20:48:02 [175/264] flamapy-bdd            error-guessing/false-optional-features/case1/fof-case1.xml   success=6  eta 0:00:20
+2026-11-01 20:48:02 [176/264] flamapy-z3             relationships/optional-alternative/optional-alternative.xml  success=6  eta 0:00:20
+2026-11-01 20:48:03 [177/264] fama-sat4j             relationships/excludes/excludes.xml                          error=2 success=4  eta 0:00:19
+2026-11-01 20:48:03 [178/264] flamapy-z3             relationships/mandatory-or/mandatory-or.xml                  success=6  eta 0:00:19
+2026-11-01 20:48:03 [179/264] featureide             error-guessing/core-features/case1/cf-case1.xml              error=1 success=5  eta 0:00:19
+2026-11-01 20:48:03 [180/264] flamapy-z3             refinement/alternative-noParentLastChild/alternative-noParen success=6  eta 0:00:18
+2026-11-01 20:48:03 [181/264] flamapy-sat:glucose3   relationships/alternative-requires/alternative-requires.xml  success=6  eta 0:00:18
+2026-11-01 20:48:04 [182/264] fama-sat4j             relationships/alternative/alternative.xml                    error=2 success=4  eta 0:00:18
+2026-11-01 20:48:04 [183/264] fama-sat4j             relationships/or-excludes/or-excludes.xml                    error=2 success=4  eta 0:00:18
+2026-11-01 20:48:04 [184/264] fama-sat4j             error-guessing/core-features/case2/cf-case2.xml              error=2 success=4  eta 0:00:18
+2026-11-01 20:48:05 [185/264] flamapy-sat:glucose3   error-guessing/dead-features/case7/df-case7.xml              success=6  eta 0:00:18
+2026-11-01 20:48:05 [186/264] flamapy-sat:glucose3   relationships/mandatory-requires/mandatory-requires.xml      success=6  eta 0:00:17
+2026-11-01 20:48:05 [187/264] fama-choco             relationships/requires-excludes/requires-excludes.xml        error=1 success=5  eta 0:00:17
+2026-11-01 20:48:05 [188/264] flamapy-bdd            error-guessing/dead-features/case8/df-case8.xml              success=6  eta 0:00:17
+2026-11-01 20:48:06 [189/264] fama-choco             relationships/or-requires/or-requires.xml                    error=1 success=5  eta 0:00:17
+2026-11-01 20:48:06 [190/264] fama-choco             relationships/or-alternative/or-alternative.xml              error=1 success=5  eta 0:00:17
+2026-11-01 20:48:06 [191/264] featureide             error-guessing/dead-features/case6/df-case6.xml              error=1 success=5  eta 0:00:16
+2026-11-01 20:48:07 [192/264] fama-sat4j             error-guessing/core-features/case1/cf-case1.xml              error=2 success=4  eta 0:00:16
+2026-11-01 20:48:07 [193/264] featureide             relationships/optional-alternative/optional-alternative.xml  error=1 success=5  eta 0:00:16
+2026-11-01 20:48:07 [194/264] flamapy-z3             error-guessing/false-optional-features/case6/fof-case6.xml   success=6  eta 0:00:16
+2026-11-01 20:48:07 [195/264] flamapy-bdd            refinement/alternative-oddChildren/alternative-oddChildren.x success=6  eta 0:00:15
+2026-11-01 20:48:07 [196/264] fama-sat4j             error-guessing/dead-features/case7/df-case7.xml              error=2 success=4  eta 0:00:15
+2026-11-01 20:48:08 [197/264] featureide             error-guessing/false-optional-features/case5/fof-case5.xml   error=1 success=5  eta 0:00:15
+2026-11-01 20:48:08 [198/264] fama-sat4j             error-guessing/core-features/case3/cf-case3.xml              error=2 success=4  eta 0:00:15
+2026-11-01 20:48:08 [199/264] featureide             refinement/alternative-oddChildren/alternative-oddChildren.x error=1 success=5  eta 0:00:14
+2026-11-01 20:48:09 [200/264] fama-sat4j             refinement/alternative-noParentLastChild/alternative-noParen error=2 success=4  eta 0:00:14
+2026-11-01 20:48:09 [201/264] fama-choco             error-guessing/false-optional-features/case3/fof-case3.xml   error=1 success=5  eta 0:00:14
+2026-11-01 20:48:09 [202/264] flamapy-z3             relationships/or/or.xml                                      success=6  eta 0:00:14
+2026-11-01 20:48:09 [203/264] featureide             relationships/mandatory-alternative/mandatory-alternative.xm error=1 success=5  eta 0:00:14
+2026-11-01 20:48:09 [204/264] flamapy-sat:glucose3   relationships/mandatory-alternative/mandatory-alternative.xm success=6  eta 0:00:13
+2026-11-01 20:48:10 [205/264] flamapy-z3             relationships/or-excludes/or-excludes.xml                    success=6  eta 0:00:13
+2026-11-01 20:48:11 [206/264] fama-sat4j             error-guessing/dead-features/case4/df-case4.xml              error=2 success=4  eta 0:00:13
+2026-11-01 20:48:11 [207/264] fama-sat4j             error-guessing/false-optional-features/case4/fof-case4.xml   error=2 success=4  eta 0:00:13
+2026-11-01 20:48:11 [208/264] flamapy-z3             error-guessing/false-optional-features/case1/fof-case1.xml   success=6  eta 0:00:13
+2026-11-01 20:48:11 [209/264] flamapy-sat:glucose3   refinement/or-noAlternative/or-noAlternative.xml             success=6  eta 0:00:12
+2026-11-01 20:48:11 [210/264] flamapy-z3             refinement/alternative-noOr/alternative-noOr.xml             success=6  eta 0:00:12
+2026-11-01 20:48:11 [211/264] flamapy-z3             relationships/mandatory-excludes/mandatory-excludes.xml      success=6  eta 0:00:12
+2026-11-01 20:48:11 [212/264] flamapy-z3             error-guessing/core-features/case6/cf-case6.xml              success=6  eta 0:00:12
+2026-11-01 20:48:11 [213/264] flamapy-z3             error-guessing/dead-features/case1/df-case1.xml              success=6  eta 0:00:11
+2026-11-01 20:48:12 [214/264] flamapy-sat:glucose3   error-guessing/dead-features/case1/df-case1.xml              success=6  eta 0:00:11
+2026-11-01 20:48:12 [215/264] flamapy-bdd            relationships/optional-alternative/optional-alternative.xml  success=6  eta 0:00:11
+2026-11-01 20:48:12 [216/264] fama-choco             error-guessing/core-features/case6/cf-case6.xml              error=1 success=5  eta 0:00:11
+2026-11-01 20:48:13 [217/264] fama-sat4j             error-guessing/false-optional-features/case2/fof-case2.xml   error=2 success=4  eta 0:00:10
+2026-11-01 20:48:13 [218/264] fama-choco             error-guessing/dead-features/case2/df-case2.xml              error=1 success=5  eta 0:00:10
+2026-11-01 20:48:14 [219/264] fama-choco             error-guessing/core-features/case5/cf-case5.xml              error=1 success=5  eta 0:00:10
+2026-11-01 20:48:14 [220/264] flamapy-sat:glucose3   relationships/optional-or/optional-or.xml                    success=6  eta 0:00:10
+2026-11-01 20:48:14 [221/264] fama-sat4j             relationships/mandatory-requires/mandatory-requires.xml      error=2 success=4  eta 0:00:10
+2026-11-01 20:48:14 [222/264] flamapy-z3             relationships/mandatory-alternative/mandatory-alternative.xm success=6  eta 0:00:09
+2026-11-01 20:48:14 [223/264] featureide             relationships/mandatory-excludes/mandatory-excludes.xml      error=1 success=5  eta 0:00:09
+2026-11-01 20:48:14 [224/264] flamapy-bdd            relationships/mandatory-excludes/mandatory-excludes.xml      success=6  eta 0:00:09
+2026-11-01 20:48:15 [225/264] fama-sat4j             error-guessing/core-features/case6/cf-case6.xml              error=2 success=4  eta 0:00:09
+2026-11-01 20:48:15 [226/264] flamapy-sat:glucose3   refinement/alternative-oddChildren/alternative-oddChildren.x success=6  eta 0:00:08
+2026-11-01 20:48:15 [227/264] fama-sat4j             error-guessing/dead-features/case5/df-case5.xml              error=2 success=4  eta 0:00:08
+2026-11-01 20:48:16 [228/264] flamapy-bdd            relationships/requires/requires.xml                          success=6  eta 0:00:08
+2026-11-01 20:48:16 [229/264] flamapy-sat:glucose3   error-guessing/false-optional-features/case6/fof-case6.xml   success=6  eta 0:00:08
+2026-11-01 20:48:16 [230/264] featureide             relationships/requires-excludes/requires-excludes.xml        error=1 success=5  eta 0:00:07
+2026-11-01 20:48:16 [231/264] fama-choco             error-guessing/dead-features/case4/df-case4.xml              error=1 success=5  eta 0:00:07
+2026-11-01 20:48:16 [232/264] flamapy-z3             relationships/requires/requires.xml                          success=6  eta 0:00:07
+2026-11-01 20:48:16 [233/264] flamapy-z3             error-guessing/dead-features/case3/df-case3.xml              success=6  eta 0:00:07
+2026-11-01 20:48:17 [234/264] fama-choco             error-guessing/false-optional-features/case1/fof-case1.xml   error=1 success=5  eta 0:00:07
+2026-11-01 20:48:17 [235/264] flamapy-z3             error-guessing/core-features/case4/cf-case4.xml              success=6  eta 0:00:06
+2026-11-01 20:48:17 [236/264] fama-choco             relationships/mandatory-excludes/mandatory-excludes.xml      error=1 success=5  eta 0:00:06
+2026-11-01 20:48:18 [237/264] flamapy-z3             error-guessing/core-features/case2/cf-case2.xml              success=6  eta 0:00:06
+2026-11-01 20:48:18 [238/264] flamapy-z3             error-guessing/dead-features/case8/df-case8.xml              success=6  eta 0:00:06
+2026-11-01 20:48:18 [239/264] flamapy-bdd            refinement/alternative-noOr/alternative-noOr.xml             success=6  eta 0:00:05
+2026-11-01 20:48:18 [240/264] flamapy-bdd            error-guessing/dead-features/case4/df-case4.xml              success=6  eta 0:00:05
+2026-11-01 20:48:18 [241/264] flamapy-bdd            relationships/optional-or/optional-or.xml                    success=6  eta 0:00:05
+2026-11-01 20:48:18 [242/264] flamapy-z3             relationships/optional/optional.xml                          success=6  eta 0:00:05
+2026-11-01 20:48:19 [243/264] fama-sat4j             relationships/or/or.xml                                      error=2 success=4  eta 0:00:04
+2026-11-01 20:48:19 [244/264] fama-sat4j             relationships/requires/requires.xml                          error=2 success=4  eta 0:00:04
+2026-11-01 20:48:19 [245/264] featureide             error-guessing/dead-features/case3/df-case3.xml              error=1 success=5  eta 0:00:04
+2026-11-01 20:48:19 [246/264] flamapy-sat:glucose3   error-guessing/core-features/case3/cf-case3.xml              success=6  eta 0:00:04
+2026-11-01 20:48:19 [247/264] flamapy-z3             relationships/alternative/alternative.xml                    success=6  eta 0:00:03
+2026-11-01 20:48:20 [248/264] flamapy-sat:glucose3   relationships/alternative-excludes/alternative-excludes.xml  success=6  eta 0:00:03
+2026-11-01 20:48:20 [249/264] fama-choco             relationships/mandatory-or/mandatory-or.xml                  error=1 success=5  eta 0:00:03
+2026-11-01 20:48:20 [250/264] flamapy-bdd            relationships/mandatory-alternative/mandatory-alternative.xm success=6  eta 0:00:03
+2026-11-01 20:48:20 [251/264] flamapy-sat:glucose3   relationships/excludes/excludes.xml                          success=6  eta 0:00:03
+2026-11-01 20:48:20 [252/264] fama-choco             relationships/mandatory-requires/mandatory-requires.xml      error=1 success=5  eta 0:00:02
+2026-11-01 20:48:21 [253/264] flamapy-sat:glucose3   refinement/alternative-noOr/alternative-noOr.xml             success=6  eta 0:00:02
+2026-11-01 20:48:21 [254/264] flamapy-sat:glucose3   error-guessing/core-features/case1/cf-case1.xml              success=6  eta 0:00:02
+2026-11-01 20:48:21 [255/264] flamapy-z3             relationships/mandatory/mandatory.xml                        success=6  eta 0:00:02
+2026-11-01 20:48:21 [256/264] featureide             error-guessing/core-features/case6/cf-case6.xml              error=1 success=5  eta 0:00:01
+2026-11-01 20:48:21 [257/264] fama-sat4j             relationships/alternative-excludes/alternative-excludes.xml  error=2 success=4  eta 0:00:01
+2026-11-01 20:48:21 [258/264] featureide             relationships/mandatory-optional/mandatory-optional.xml      error=1 success=5  eta 0:00:01
+2026-11-01 20:48:22 [259/264] flamapy-z3             relationships/alternative-requires/alternative-requires.xml  success=6  eta 0:00:01
+2026-11-01 20:48:22 [260/264] flamapy-bdd            error-guessing/dead-features/case3/df-case3.xml              success=6  eta 0:00:00
+2026-11-01 20:48:22 [261/264] fama-choco             relationships/or-excludes/or-excludes.xml                    error=1 success=5  eta 0:00:00
+2026-11-01 20:48:22 [262/264] featureide             relationships/optional/optional.xml                          error=1 success=5  eta 0:00:00
+2026-11-01 20:48:22 [263/264] flamapy-bdd            error-guessing/false-optional-features/case3/fof-case3.xml   success=6  eta 0:00:00
+2026-11-01 20:48:23 [264/264] fama-sat4j             relationships/mandatory-optional/mandatory-optional.xml      error=2 success=4  eta 0:00:00
+2026-11-01 20:48:23 campaign finished

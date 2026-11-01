@@ -1,0 +1,15 @@
+{
+  "name": "rq2_sat_solvers",
+  "description": "Effect of the PySAT solver (six solvers, applied to every PySAT operation).",
+  "tools": ["flamapy-sat:glucose3", "flamapy-sat:glucose4", "flamapy-sat:minisat22", "flamapy-sat:lingeling", "flamapy-sat:maplesat", "flamapy-sat:cadical153"],
+  "ops": ["Satisfiable","CoreFeatures","DeadFeatures","FalseOptionalFeatures","ConfigurationsNumber"],
+  "reps": 3,
+  "timeout_s": 60,
+  "workers": 6,
+  "cpus": [1, 2, 3, 4, 5, 6],
+  "py_mem_limit_gb": 8,
+  "python": ".venv/bin/python",
+  "seed": 2026,
+  "models": {"manifest": "prepared/manifest.csv", "include_duplicates": false},
+  "flamapy_repos": ["~/Documents/Projects/Work/Research/Software/flamapy/distribution/flamapy_fw","~/Documents/Projects/Work/Research/Software/flamapy/distribution/fm_metamodel","~/Documents/Projects/Work/Research/Software/flamapy/distribution/pysat_metamodel","~/Documents/Projects/Work/Research/Software/flamapy/distribution/bdd_metamodel","~/Documents/Projects/Work/Research/Software/flamapy/distribution/z3_metamodel","~/Documents/Projects/Work/Research/Software/flamapy/distribution/flamapy"]
+}

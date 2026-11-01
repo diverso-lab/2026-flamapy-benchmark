@@ -1,0 +1,14 @@
+{
+  "name": "pilot",
+  "description": "Pilot: 50 size-stratified models, every tool, short timeout. Checks that everything runs and calibrates cost. Timings are not reported.",
+  "tools": ["flamapy-sat:glucose3", "flamapy-sat:cadical153", "flamapy-bdd", "flamapy-z3", "fama-sat4j", "fama-choco", "featureide"],
+  "ops": ["Satisfiable","CoreFeatures","DeadFeatures","FalseOptionalFeatures","ConfigurationsNumber"],
+  "reps": 3,
+  "timeout_s": 60,
+  "workers": 4,
+  "java_xmx": "4g",
+  "python": ".venv/bin/python",
+  "seed": 2026,
+  "models": {"manifest": "prepared/manifest.csv", "include_duplicates": false, "sample": 50},
+  "flamapy_repos": ["~/Documents/Projects/Work/Research/Software/flamapy/distribution/flamapy_fw","~/Documents/Projects/Work/Research/Software/flamapy/distribution/fm_metamodel","~/Documents/Projects/Work/Research/Software/flamapy/distribution/pysat_metamodel","~/Documents/Projects/Work/Research/Software/flamapy/distribution/bdd_metamodel","~/Documents/Projects/Work/Research/Software/flamapy/distribution/z3_metamodel","~/Documents/Projects/Work/Research/Software/flamapy/distribution/flamapy"]
+}

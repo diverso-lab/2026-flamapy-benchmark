@@ -1,0 +1,8 @@
+# flamapy repositories used by the SoSyM revision campaign (develop branches, pinned 2026-11-01)
+# repo  commit  url
+flamapy_fw 4baccb717f767c9c44d33e70eed7a902e45edca9 git@github.com:flamapy/flamapy_fw.git
+fm_metamodel 24822a1e5145157174280819163e110d645dedf9 git@github.com:flamapy/fm_metamodel.git
+pysat_metamodel 9296da15fb5f3916dc04a3b112f08fecd6b82bb2 git@github.com:flamapy/pysat_metamodel.git
+bdd_metamodel 40f896738e955db471e92f663f18375a9ee886a8 git@github.com:flamapy/bdd_metamodel.git
+z3_metamodel b5608d579b18f72eb6063ec282e6e2db692f0e15 git@github.com:flamapy/z3_metamodel.git
+flamapy 5f0d6e66b79cd3cfe3bd6d0add5688918707e8a2 git@github.com:flamapy/flamapy.git

@@ -1,0 +1,13 @@
+{
+  "name": "rq1_fama_suite",
+  "description": "RQ1 ground truth: FaMa test suite (44 models with expected results). Correctness only; timings not used.",
+  "tools": ["flamapy-sat:glucose3", "flamapy-bdd", "flamapy-z3", "fama-sat4j", "fama-choco", "featureide"],
+  "ops": ["Satisfiable", "CoreFeatures", "DeadFeatures", "FalseOptionalFeatures", "ConfigurationsNumber", "Configurations"],
+  "reps": 1,
+  "timeout_s": 60,
+  "workers": 2,
+  "java_xmx": "2g",
+  "python": ".venv/bin/python",
+  "seed": 2026,
+  "models": {"manifest": "prepared/fama_suite/manifest.csv", "include_duplicates": true}
+}

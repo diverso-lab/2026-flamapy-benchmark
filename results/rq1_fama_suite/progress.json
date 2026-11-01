@@ -1,0 +1,12 @@
+{
+  "done": 264,
+  "total": 264,
+  "elapsed_s": 60,
+  "eta_s": 0,
+  "statuses": {
+    "done": 264,
+    "success": 1408,
+    "error": 176
+  },
+  "updated_at": "2026-11-01T20:48:23"
+}

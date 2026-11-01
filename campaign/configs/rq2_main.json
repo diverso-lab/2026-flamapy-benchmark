@@ -1,0 +1,16 @@
+{
+  "name": "rq2_main",
+  "description": "RQ2 main comparison: flamapy SAT/BDD/Z3 vs FaMa (Sat4j, Choco) and FeatureIDE. One timeout for every tool; repetitions for warm timings.",
+  "tools": ["flamapy-sat:glucose3", "flamapy-bdd", "flamapy-z3", "fama-sat4j", "fama-choco", "featureide"],
+  "ops": ["Satisfiable","CoreFeatures","DeadFeatures","FalseOptionalFeatures","ConfigurationsNumber"],
+  "reps": 5,
+  "timeout_s": 300,
+  "workers": 6,
+  "cpus": [1, 2, 3, 4, 5, 6],
+  "java_xmx": "8g",
+  "py_mem_limit_gb": 8,
+  "python": ".venv/bin/python",
+  "seed": 2026,
+  "models": {"manifest": "prepared/manifest.csv", "include_duplicates": false},
+  "flamapy_repos": ["~/Documents/Projects/Work/Research/Software/flamapy/distribution/flamapy_fw","~/Documents/Projects/Work/Research/Software/flamapy/distribution/fm_metamodel","~/Documents/Projects/Work/Research/Software/flamapy/distribution/pysat_metamodel","~/Documents/Projects/Work/Research/Software/flamapy/distribution/bdd_metamodel","~/Documents/Projects/Work/Research/Software/flamapy/distribution/z3_metamodel","~/Documents/Projects/Work/Research/Software/flamapy/distribution/flamapy"]
+}
