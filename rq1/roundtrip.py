@@ -39,6 +39,10 @@ FORMATS = {
     'afm': ('AFMWriter', 'AFMReader', '.afm'),
     'json': ('JSONWriter', 'JSONReader', '.json'),
     'fama_xml': ('XMLWriter', 'XMLReader', '.xml'),
+    # The same writers with apply_refactorings=True: models they reject by default are written
+    # after the refactorings (helper features), and checked with the helper definitions.
+    'featureide+refactorings': ('FeatureIDEWriter', 'FeatureIDEReader', '.xml'),
+    'glencoe+refactorings': ('GlencoeWriter', 'GlencoeReader', '.gfm.json'),
 }
 
 
@@ -73,6 +77,27 @@ def entails(premise: frozenset, conclusion: frozenset) -> bool:
     return True
 
 
+def helper_definitions(fm, helpers: set[str]) -> frozenset:
+    """Clauses defining helper features that a writer added (FeatureIDE and Glencoe give each
+    group of a mixed decomposition its own abstract feature): a mandatory helper is selected
+    exactly when its parent is; an optional one exactly when one of its children is. With these
+    definitions added to the original model, equivalence with the read-back model means the
+    original features have exactly the same configurations."""
+    clauses = set()
+    for name in helpers:
+        helper = fm.get_feature_by_name(name)
+        if helper.is_mandatory():
+            parent = helper.get_parent().name
+            clauses.add(frozenset({(name, False), (parent, True)}))
+            clauses.add(frozenset({(name, True), (parent, False)}))
+        else:
+            children = [child.name for child in helper.get_children()]
+            clauses.add(frozenset({(name, False)} | {(c, True) for c in children}))
+            for child in children:
+                clauses.add(frozenset({(child, False), (name, True)}))
+    return frozenset(clauses)
+
+
 def one(path: str) -> dict:
     import logging
     import warnings
@@ -88,10 +113,13 @@ def one(path: str) -> dict:
         for fmt, (w, r, ext) in FORMATS.items():
             target = str(Path(tmp) / f'model{ext}')
             try:
-                getattr(t, w)(target, fm).transform()
+                if fmt.endswith('+refactorings'):
+                    getattr(t, w)(target, fm, apply_refactorings=True).transform()
+                else:
+                    getattr(t, w)(target, fm).transform()
             except Exception as exc:  # noqa: BLE001
                 msg = f'{type(exc).__name__}: {exc}'[:150]
-                kind = 'unsupported' if any(k in msg.lower() for k in ('not supported', 'unsupported', 'cannot be represented', 'cannot be written')) else 'write_error'
+                kind = 'unsupported' if any(k in msg.lower() for k in ('not supported', 'unsupported', 'cannot be represented', 'cannot be written', 'cannot represent')) else 'write_error'
                 out[fmt] = {'status': kind, 'detail': msg}
                 continue
             try:
@@ -101,21 +129,26 @@ def one(path: str) -> dict:
                 continue
             diffs = []
             names = sorted(f.name for f in fm2.get_features())
-            if names != ref_names:
-                diffs.append(f'features (+{len(set(names) - set(ref_names))}/-{len(set(ref_names) - set(names))})')
-            if len(fm2.get_constraints()) != ref_ctcs:
+            missing = set(ref_names) - set(names)
+            helpers = set(names) - set(ref_names)
+            if missing:
+                diffs.append(f'features (+{len(helpers)}/-{len(missing)})')
+            if len(fm2.get_constraints()) != ref_ctcs and not helpers:
                 diffs.append(f'constraints {ref_ctcs}->{len(fm2.get_constraints())}')
-            equivalence = 'not checked (features differ)'
-            if names == ref_names:
+            equivalence = 'not checked (features missing)'
+            if not missing:
                 try:
                     cnf = clauses_by_name(fm2)
+                    reference = ref_cnf | helper_definitions(fm2, helpers) if helpers else ref_cnf
                 except Exception as exc:  # noqa: BLE001
                     out[fmt] = {'status': 'analysis_error', 'detail': f'{type(exc).__name__}: {exc}'[:150]}
                     continue
-                forward, backward = entails(ref_cnf, cnf), entails(cnf, ref_cnf)
-                equivalence = 'equivalent' if forward and backward else \
-                    'NOT equivalent: ' + ('read-back allows configurations the original forbids' if not backward
-                                          else 'read-back forbids configurations the original allows')
+                forward, backward = entails(reference, cnf), entails(cnf, reference)
+                equivalence = ('equivalent' + (f' (with {len(helpers)} helper features)' if helpers else '')
+                               if forward and backward else
+                               'NOT equivalent: ' + ('read-back allows configurations the original forbids'
+                                                     if not backward else
+                                                     'read-back forbids configurations the original allows'))
                 if not (forward and backward):
                     diffs.append('configurations')
             out[fmt] = {'status': 'differs' if diffs else 'ok', 'detail': '; '.join(diffs),
