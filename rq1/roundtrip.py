@@ -8,8 +8,9 @@ Glencoe JSON, AFM, flamapy JSON, FaMa XML}:
 and FM' is compared with FM on:
   * the set of feature names,
   * the number of cross-tree constraints,
-  * semantics: number of configurations (BDD; only when both compile within the time limit) and
-    core and dead features (SAT), which together detect lost, added or altered constraints.
+  * semantics: logical equivalence, checked with SAT on flamapy's CNF of both models (feature
+    variables only): every clause of each model must follow from the other, i.e. both models
+    have exactly the same configurations. Exact on every model, no counting needed.
 
 Statuses per (model, format): ok | differs (with what differs) | write_error | read_error |
 unsupported (the writer rejects the model's language level, e.g. typed features in AFM) | timeout.
@@ -41,41 +42,47 @@ FORMATS = {
 }
 
 
-def semantics(fm, limit_s: int):
-    """(feature names, #ctcs, configuration count or None, core, dead)."""
-    import signal
-    from flamapy.metamodels.pysat_metamodel.operations import PySATCoreFeatures, PySATDeadFeatures
+def clauses_by_name(fm) -> frozenset:
+    """The model's CNF (flamapy's default distributive encoding, feature variables only), with
+    every literal written as (feature name, polarity), so two models can be compared by name."""
     from flamapy.metamodels.pysat_metamodel.transformations import FmToPysat
-    names = sorted(f.name for f in fm.get_features())
     sat = FmToPysat(fm).transform()
-    core = sorted(map(str, PySATCoreFeatures().execute(sat).get_result()))
-    dead = sorted(map(str, PySATDeadFeatures().execute(sat).get_result()))
-    count = None
-
-    def _alarm(*_):
-        raise TimeoutError()
-    old = signal.signal(signal.SIGALRM, _alarm)
-    signal.alarm(limit_s)
-    try:
-        from flamapy.metamodels.bdd_metamodel.operations import BDDConfigurationsNumber
-        from flamapy.metamodels.bdd_metamodel.transformations import FmToBDD
-        count = str(BDDConfigurationsNumber().execute(FmToBDD(fm).transform()).get_result())
-    except Exception:  # noqa: BLE001 - count stays unknown (timeout or BDD limitation)
-        count = None
-    finally:
-        signal.alarm(0)
-        signal.signal(signal.SIGALRM, old)
-    return names, len(fm.get_constraints()), count, core, dead
+    if sat.auxiliary_variables:
+        raise ValueError('CNF has auxiliary variables')
+    return frozenset(frozenset((sat.features[abs(lit)], lit > 0) for lit in clause)
+                     for clause in sat.get_all_clauses())
 
 
-def one(path: str, limit_s: int) -> dict:
+def entails(premise: frozenset, conclusion: frozenset) -> bool:
+    """True when every clause of `conclusion` follows from `premise` (one SAT call per clause:
+    the premise plus the negated clause must be unsatisfiable)."""
+    from pysat.solvers import Solver
+    ids: dict[str, int] = {}
+
+    def lit(name: str, positive: bool) -> int:
+        var = ids.setdefault(name, len(ids) + 1)
+        return var if positive else -var
+
+    with Solver(name='glucose3') as solver:
+        for clause in premise:
+            solver.add_clause([lit(n, pos) for n, pos in clause])
+        for clause in conclusion:
+            if not solver.solve(assumptions=[-lit(n, pos) for n, pos in clause]):
+                continue
+            return False
+    return True
+
+
+def one(path: str) -> dict:
     import logging
     import warnings
     warnings.filterwarnings('ignore')
     logging.disable(logging.WARNING)
     import flamapy.metamodels.fm_metamodel.transformations as t
     fm = t.UVLReader(path).transform()
-    ref = semantics(fm, limit_s)
+    ref_names = sorted(f.name for f in fm.get_features())
+    ref_ctcs = len(fm.get_constraints())
+    ref_cnf = clauses_by_name(fm)
     out = {}
     with tempfile.TemporaryDirectory() as tmp:
         for fmt, (w, r, ext) in FORMATS.items():
@@ -84,7 +91,7 @@ def one(path: str, limit_s: int) -> dict:
                 getattr(t, w)(target, fm).transform()
             except Exception as exc:  # noqa: BLE001
                 msg = f'{type(exc).__name__}: {exc}'[:150]
-                kind = 'unsupported' if any(k in msg.lower() for k in ('not supported', 'unsupported', 'cannot be represented')) else 'write_error'
+                kind = 'unsupported' if any(k in msg.lower() for k in ('not supported', 'unsupported', 'cannot be represented', 'cannot be written')) else 'write_error'
                 out[fmt] = {'status': kind, 'detail': msg}
                 continue
             try:
@@ -92,24 +99,27 @@ def one(path: str, limit_s: int) -> dict:
             except Exception as exc:  # noqa: BLE001
                 out[fmt] = {'status': 'read_error', 'detail': f'{type(exc).__name__}: {exc}'[:150]}
                 continue
-            try:
-                got = semantics(fm2, limit_s)
-            except Exception as exc:  # noqa: BLE001
-                out[fmt] = {'status': 'analysis_error', 'detail': f'{type(exc).__name__}: {exc}'[:150]}
-                continue
             diffs = []
-            if got[0] != ref[0]:
-                diffs.append(f'features (+{len(set(got[0]) - set(ref[0]))}/-{len(set(ref[0]) - set(got[0]))})')
-            if got[1] != ref[1]:
-                diffs.append(f'constraints {ref[1]}->{got[1]}')
-            if ref[2] is not None and got[2] is not None and got[2] != ref[2]:
-                diffs.append(f'configurations {ref[2]}->{got[2]}')
-            if got[3] != ref[3]:
-                diffs.append('core')
-            if got[4] != ref[4]:
-                diffs.append('dead')
+            names = sorted(f.name for f in fm2.get_features())
+            if names != ref_names:
+                diffs.append(f'features (+{len(set(names) - set(ref_names))}/-{len(set(ref_names) - set(names))})')
+            if len(fm2.get_constraints()) != ref_ctcs:
+                diffs.append(f'constraints {ref_ctcs}->{len(fm2.get_constraints())}')
+            equivalence = 'not checked (features differ)'
+            if names == ref_names:
+                try:
+                    cnf = clauses_by_name(fm2)
+                except Exception as exc:  # noqa: BLE001
+                    out[fmt] = {'status': 'analysis_error', 'detail': f'{type(exc).__name__}: {exc}'[:150]}
+                    continue
+                forward, backward = entails(ref_cnf, cnf), entails(cnf, ref_cnf)
+                equivalence = 'equivalent' if forward and backward else \
+                    'NOT equivalent: ' + ('read-back allows configurations the original forbids' if not backward
+                                          else 'read-back forbids configurations the original allows')
+                if not (forward and backward):
+                    diffs.append('configurations')
             out[fmt] = {'status': 'differs' if diffs else 'ok', 'detail': '; '.join(diffs),
-                        'count_checked': ref[2] is not None and got[2] is not None}
+                        'equivalence': equivalence}
     return out
 
 
@@ -117,13 +127,12 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument('--jobs', type=int, default=8)
     ap.add_argument('--timeout', type=int, default=300, help='per model, all formats')
-    ap.add_argument('--bdd-limit', type=int, default=20, help='seconds for each BDD count')
     ap.add_argument('--max-features', type=int, default=0)
-    ap.add_argument('--one', nargs=2, help=argparse.SUPPRESS)
+    ap.add_argument('--one', nargs=1, help=argparse.SUPPRESS)
     args = ap.parse_args()
     if args.one:
         try:
-            print(json.dumps(one(args.one[0], int(args.one[1]))))
+            print(json.dumps(one(args.one[0])))
         except Exception as exc:  # noqa: BLE001
             print(json.dumps({'_error': f'{type(exc).__name__}: {exc}'[:200]}))
         return
@@ -136,7 +145,7 @@ def main() -> None:
 
     def run(r):
         try:
-            p = subprocess.run([sys.executable, str(Path(__file__)), '--one', str(ROOT / r['path']), str(args.bdd_limit)],
+            p = subprocess.run([sys.executable, str(Path(__file__)), '--one', str(ROOT / r['path'])],
                                capture_output=True, text=True, timeout=args.timeout, cwd=str(ROOT))
             line = (p.stdout.strip().splitlines() or ['{"_error": "no output"}'])[-1]
             results[r['model_id']] = json.loads(line)
@@ -152,7 +161,7 @@ def main() -> None:
     details: dict[tuple[str, str], Counter] = defaultdict(Counter)
     with open(ROOT / 'rq1/roundtrip.csv', 'w', newline='') as fh:
         w = csv.writer(fh)
-        w.writerow(['model_id', 'n_features', 'language_level', 'format', 'status', 'detail', 'count_checked'])
+        w.writerow(['model_id', 'n_features', 'language_level', 'format', 'status', 'detail', 'equivalence'])
         nf = {r['model_id']: r for r in rows}
         for mid, res in sorted(results.items()):
             if '_error' in res:
@@ -165,11 +174,11 @@ def main() -> None:
                 if v['status'] != 'ok':
                     details[(fmt, v['status'])][v['detail'].split(':')[0][:60]] += 1
                 w.writerow([mid, nf[mid]['n_features'], nf[mid]['language_level'], fmt, v['status'], v['detail'],
-                            v.get('count_checked', '')])
+                            v.get('equivalence', '')])
     statuses = ['ok', 'differs', 'unsupported', 'write_error', 'read_error', 'analysis_error', 'model_error']
     lines = ['# RQ1 transformations: format round-trips', '',
              f'{len(rows)} unique models; UVL -> format -> flamapy reader, compared on features, number of '
-             'constraints, configuration count (BDD, when computable) and core/dead features (SAT).', '',
+             'constraints and logical equivalence (SAT: each model entails every CNF clause of the other).', '',
              '| Format | ' + ' | '.join(statuses) + ' |', '|---|' + '---|' * len(statuses)]
     for fmt in FORMATS:
         lines.append(f'| {fmt} | ' + ' | '.join(str(table[fmt].get(s, 0)) for s in statuses) + ' |')
