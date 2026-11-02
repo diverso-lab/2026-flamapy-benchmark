@@ -18,7 +18,9 @@ reports.
 
 * `t` is wall-clock seconds measured inside the worker around the step only; `cpu` is the CPU time
   of the measuring thread/process.
-* `value` of an operation is normalised: booleans, counts as decimal strings, feature lists as
-  sorted names, configurations as sorted lists of selected feature names.
+* `value` of an operation is normalised: booleans, counts as decimal strings, features as their
+  names, configurations as lists of selected feature names. Ordered results (e.g.
+  ProductDistribution, Variability) keep their order; comparisons sort the results whose order
+  does not matter (feature lists, configurations).
 * The runner enforces the timeout: if `end` does not arrive within `timeout_s` of `begin`, it kills
   the process group, records `timeout`, and starts a new worker for the operations not yet started.

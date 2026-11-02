@@ -65,12 +65,14 @@ def canonical(value: Any) -> Any:
         return sorted(str(_name(k)) for k, selected in elements.items() if selected)
     if isinstance(value, dict):
         return {str(_name(k)): canonical(v) for k, v in value.items()}
-    if isinstance(value, (list, tuple, set, frozenset)):
+    if isinstance(value, (set, frozenset)):
         items = [canonical(_name(v)) for v in value]
-        try:
-            return sorted(items, key=lambda x: json.dumps(x, sort_keys=True))
-        except TypeError:
-            return items
+        return sorted(items, key=lambda x: json.dumps(x, sort_keys=True))
+    if isinstance(value, (list, tuple)):
+        # Order is kept: some results are ordered vectors (ProductDistribution, Variability).
+        # Comparisons sort the results whose order does not matter (feature lists,
+        # configurations) themselves.
+        return [canonical(_name(v)) for v in value]
     return str(_name(value))
 
 
