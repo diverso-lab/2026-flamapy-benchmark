@@ -54,3 +54,6 @@ results/*/nohup.out
 
 # Exhaustive oracle output (1.3 GB, regenerate with rq1/oracle.py)
 rq1/oracle_values.jsonl
+
+# Oracle campaign values (up to 1.4 GB per tool: every configuration); regenerate by re-running
+results/rq1_oracle/*.values.jsonl
