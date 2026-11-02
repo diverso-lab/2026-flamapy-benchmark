@@ -57,3 +57,7 @@ rq1/oracle_values.jsonl
 
 # Oracle campaign values (up to 1.4 GB per tool: every configuration); regenerate by re-running
 results/rq1_oracle/*.values.jsonl
+
+# CNF-method verification: raw events are large and reproducible; reports are kept
+results/cnf_methods/*/*.jsonl
+results/cnf_methods/*.log
