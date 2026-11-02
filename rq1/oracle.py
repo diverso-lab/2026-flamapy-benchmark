@@ -20,8 +20,8 @@ is used only to read the file), and derives each operation's result from its def
   PureOptionalFeatures   FIP == 0.5
   ProductDistribution    k -> |{c : |c| = k}|, k = 0..n
   Homogeneity            mean FIP over all features
-  Variability            (|C| / (2^n - 1), |C| / (2^v - 1)) with n features, v variant features
-                         (second value undefined when v = 0)
+  Variability            (|C| / (2^n - 1), |C| / (2^v - 1)) with n features, v variant features;
+                         the second value is 0 when v = 0 (FLAME, Duran et al. 2017)
 
 Writes rq1/oracle_values.jsonl (one model per line) and prepared/oracle_ids.json (the models it
 could enumerate), which campaign/configs/rq1_oracle.json reads.
@@ -146,7 +146,7 @@ def oracle_one(path: str, max_configs: int) -> dict[str, Any]:
         'PureOptionalFeatures': sorted(f for f in names if n and count[f] * 2 == n),
         'ProductDistribution': [str(x) for x in dist],
         'Homogeneity': (sum(fip.values()) / len(names)) if names else 0.0,
-        'Variability': [n / (2 ** len(names) - 1), (n / (2 ** v - 1)) if v else None],
+        'Variability': [n / (2 ** len(names) - 1), (n / (2 ** v - 1)) if v else 0.0],
         '_n_features': len(names),
     }
 

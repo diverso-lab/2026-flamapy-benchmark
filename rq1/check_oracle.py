@@ -84,6 +84,10 @@ def main() -> None:
                         mismatches.append([mid, op, tool, 'mismatch', json.dumps(got)[:150], json.dumps(vac)[:150]])
                     continue
                 expected = ref[op]
+                if op == 'Variability' and expected[1] is None:
+                    # oracle files written before FLAME's definition was applied: partial
+                    # variability is 0 when there are no variant features
+                    expected = [expected[0], 0.0]
                 if close(got, expected):
                     table[(op, tool)]['ok'] += 1
                 else:
