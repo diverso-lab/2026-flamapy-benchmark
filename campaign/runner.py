@@ -423,6 +423,9 @@ def environment_snapshot(cfg: dict[str, Any]) -> dict[str, Any]:
     repos = {}
     for repo in cfg.get('flamapy_repos', []):
         p = Path(repo).expanduser()
+        if not p.is_dir():
+            # the configs name the Mac's checkouts; setup_env.sh clones into .build/flamapy
+            p = ROOT / '.build/flamapy' / p.name
         try:
             head = subprocess.run(['git', '-C', str(p), 'rev-parse', 'HEAD'], capture_output=True, text=True).stdout.strip()
             branch = subprocess.run(['git', '-C', str(p), 'branch', '--show-current'], capture_output=True, text=True).stdout.strip()
