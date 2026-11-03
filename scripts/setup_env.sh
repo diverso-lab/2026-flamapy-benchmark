@@ -73,8 +73,10 @@ fi
 bash scripts/build_java.sh
 
 # ----------------------------------------------------------------------------- 4. models
-if [ ! -f prepared/manifest.csv ] || [ "${FORCE}" = "1" ]; then
-    info "building prepared/manifest.csv (takes a few minutes)"
+# manifest.csv is in git, but the models it points to (.models/, from the zip) and the FaMa XML
+# (prepared/fama/) are not: a fresh clone needs this step too
+if [ ! -f prepared/manifest.csv ] || [ ! -d .models ] || [ ! -d prepared/fama ] || [ "${FORCE}" = "1" ]; then
+    info "extracting the models and building prepared/ (takes a few minutes)"
     .venv/bin/python -m campaign.prepare --jobs "$(getconf _NPROCESSORS_ONLN 2>/dev/null || echo 4)"
 fi
 
