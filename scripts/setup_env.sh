@@ -93,8 +93,11 @@ except Exception:
     print("  dd backend   pure Python (dd.autoref) - dd.cudd not available")
 PYEOF
 MODEL="$(.venv/bin/python -c "import csv; print(next(r['path'] for r in csv.DictReader(open('prepared/manifest.csv')) if not r['excluded'] and r['fama_path']))")"
-.venv/bin/python -m campaign.py_worker "${MODEL}" bdd n/a 1 ConfigurationsNumber | grep -q '"status": "success"' \
+# capture first: `cmd | grep -q` closes the pipe at the first match (BrokenPipeError + pipefail)
+OUT_PY="$(.venv/bin/python -m campaign.py_worker "${MODEL}" bdd n/a 1 ConfigurationsNumber 2>&1 || true)"
+grep -q '"status": "success"' <<< "${OUT_PY}" \
     && info "flamapy worker OK" || die "flamapy worker failed on ${MODEL}"
-java -cp "featureide_cli/build:featureide_cli/lib/*" FideHarness "${MODEL}" 60000 1 ConfigurationsNumber | grep -q '"status":"success"' \
+OUT_FIDE="$(java -cp "featureide_cli/build:featureide_cli/lib/*" FideHarness "${MODEL}" 60000 1 ConfigurationsNumber 2>&1 || true)"
+grep -q '"status":"success"' <<< "${OUT_FIDE}" \
     && info "FeatureIDE harness OK" || die "FeatureIDE harness failed on ${MODEL}"
 info "environment ready"
