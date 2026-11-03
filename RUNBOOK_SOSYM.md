@@ -22,6 +22,9 @@ result directory on a different host (`--allow-other-host` overrides; do not use
 ## 1. Set up the lab machine (once)
 
 Needs git, curl, uv (or Python 3.12), JDK 17 with `javac`, Maven.
+Without sudo, or where the distribution no longer ships JDK 17 (Fedora 44), unpack Temurin 17 and
+Maven into `~/opt` and put them first on `PATH` (`JAVA_HOME=~/opt/jdk-17…`, `PATH=$JAVA_HOME/bin:~/opt/apache-maven-3.9.…/bin:$PATH`)
+in the shell that runs `setup_env.sh` and the campaigns.
 
 ```bash
 git clone -b sosym-revision https://github.com/diverso-lab/2026-flamapy-benchmark
@@ -46,6 +49,30 @@ scripts/run_campaign.sh campaign/configs/rq2_sat_solvers.json results/rq2_sat_so
 
 The runner is detached (`nohup`/`setsid`): closing the SSH session does not stop it. Workers are
 pinned to CPUs 1–6 (`cpus` in the config) on Linux; CPU 0 and 7 stay free for the OS and the runner.
+
+### Optional, after the RQ2 runs: knowledge compilers on the `auto` CNF models
+
+`rq1/verify_cnf_methods.py` (ClauseSet `cnf_method` verification) could not compile SDD, sharpSAT
+or the BDD reference on the 129 models where `auto` picks Tseytin (eCos-style, 313–6,467 features)
+on the Mac within 30 min. To give each compilation more time on this machine, **after**
+`rq2_sat_solvers` has finished (it would disturb the timings otherwise):
+
+```bash
+# needs the develop commits of flamapy_fw, pysat_metamodel and sdd_metamodel from 2026-11-02
+# (HSDAG fix, Tseytin projection, SDD void core) and the sdd / sharpsat plugins:
+for r in sdd_metamodel sharpsat_metamodel; do
+    git clone -q -b develop https://github.com/flamapy/$r .build/flamapy/$r; done
+git -C .build/flamapy/flamapy_fw checkout -q develop && git -C .build/flamapy/flamapy_fw pull -q
+git -C .build/flamapy/pysat_metamodel checkout -q develop && git -C .build/flamapy/pysat_metamodel pull -q
+uv pip install --python .venv/bin/python -e .build/flamapy/sdd_metamodel -e .build/flamapy/sharpsat_metamodel
+nohup .venv/bin/python rq1/verify_cnf_methods.py --set auto --phases sdd,sharpsat,bdd \
+    --aux-timeout 3600 --jobs 6 --out results/cnf_methods/final > results/cnf_methods/compilers.log 2>&1 &
+.venv/bin/python rq1/check_cnf_methods.py results/cnf_methods/final
+```
+
+Each compiler × method gets its own process and budget (`sdd@tseytin`, …); `--phases` reruns only
+those phases and the analyser merges them into the existing results (`results/cnf_methods/final/*.jsonl`
+must be copied over from the Mac, they are not in git). Start with `--limit 10` to see the times.
 
 ## 3. Monitor
 

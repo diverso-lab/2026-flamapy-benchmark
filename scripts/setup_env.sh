@@ -47,13 +47,27 @@ if [ ! -x .venv/bin/python ]; then
         die "need uv or python3.12"
     fi
 fi
-PIP=(.venv/bin/python -m pip)
-if command -v uv >/dev/null 2>&1; then PIP=(uv pip --python .venv/bin/python); fi
+PIP_INSTALL=(.venv/bin/python -m pip install)
+if command -v uv >/dev/null 2>&1; then PIP_INSTALL=(uv pip install --python .venv/bin/python); fi
 info "installing flamapy (editable, pinned commits) and locked dependencies"
-"${PIP[@]}" install -q \
+"${PIP_INSTALL[@]}" -q \
     -e "${SRC}/flamapy_fw" -e "${SRC}/fm_metamodel" -e "${SRC}/pysat_metamodel" \
     -e "${SRC}/bdd_metamodel" -e "${SRC}/z3_metamodel" -e "${SRC}/flamapy"
-"${PIP[@]}" install -q -r campaign/requirements-lock.txt
+"${PIP_INSTALL[@]}" -q -r campaign/requirements-lock.txt
+
+# dd's PyPI wheel is pure Python (dd.autoref); flamapy's BDD plugin uses CUDD (dd.cudd) when
+# present, which is orders of magnitude faster. Rebuild the pinned dd from source with CUDD
+# (dd's build downloads CUDD 3.0.0 and checks its SHA-256; needs a C compiler). NO_CUDD=1 skips.
+if [ "${NO_CUDD:-0}" != "1" ] && ! .venv/bin/python -c 'import dd.cudd' 2>/dev/null; then
+    DD_VERSION="$(.venv/bin/python -c 'import importlib.metadata as m; print(m.version("dd"))')"
+    info "building dd ${DD_VERSION} with CUDD"
+    "${PIP_INSTALL[@]}" -q cython setuptools wheel
+    if [ "${PIP_INSTALL[0]}" = "uv" ]; then REINSTALL=(--reinstall --no-cache); else REINSTALL=(--force-reinstall --no-cache-dir); fi
+    if ! DD_FETCH=1 DD_CUDD=1 DD_CUDD_ZDD=1 "${PIP_INSTALL[@]}" -q "${REINSTALL[@]}" --no-deps \
+            --no-binary dd --no-build-isolation "dd==${DD_VERSION}"; then
+        info "WARNING: building dd with CUDD failed; the BDD plugin will use pure-Python dd"
+    fi
+fi
 
 # ----------------------------------------------------------------------------- 3. Java baselines
 bash scripts/build_java.sh
